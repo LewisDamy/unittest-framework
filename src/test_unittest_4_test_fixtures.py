@@ -23,32 +23,39 @@ import sys
 import unittest
 
 
-class Container:
+class Container_1:
     def __init__(self):
         if sys.platform.startswith('win'):
             self.code = 'XC-win'
         else:
             self.code = f'XC-{sys.platform}'
+            
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_1(unittest.TestCase):
+
     @unittest.skipUnless(
         sys.platform.startswith('win'), 'Requires Windows.'
     )
     def test_requires_windows(self):
-        container = Container()  # code to remove
+        # container = Container()  # code to remove
         self.assertEqual(container.code, 'XC-win')
 
     @unittest.skipUnless(
         sys.platform.startswith('linux'), 'Requires Linux.'
     )
     def test_requires_linux(self):
-        container = Container()  # code to remove
+        # container = Container()  # code to remove
         self.assertEqual(container.code, 'XC-linux')
 
 
 
 # enter your solution here
+
+# def setUpModule():
+#     global container
+#     container = Container_1()
+
 
 
 #######################################################################################################
@@ -70,7 +77,7 @@ import sys
 import unittest
 
 
-class Container:
+class Container_2:
     
     def __init__(self):
         if sys.platform.startswith('win'):
@@ -79,7 +86,7 @@ class Container:
             self.code = f'XC-{sys.platform}'
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_2(unittest.TestCase):
     
     @unittest.skipUnless(
         sys.platform.startswith('win'), 'Requires Windows.'
@@ -96,10 +103,13 @@ class TestContainer(unittest.TestCase):
 
 def setUpModule():
     global container
-    container = Container()
+    container = Container_2()
 
     
 # enter your solution here
+def tearDownModule():
+    global container
+    del container
 
 
 
@@ -124,7 +134,7 @@ import sys
 import unittest
 
 
-class Container:
+class Container_3:
     
     def __init__(self):
         if sys.platform.startswith('win'):
@@ -133,26 +143,29 @@ class Container:
             self.code = f'XC-{sys.platform}'
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_3(unittest.TestCase):
 
     # enter your solution here
+    @classmethod
+    def setUpClass(self):
+        self.container = Container_3()
 
     @unittest.skipUnless(
         sys.platform.startswith('win'), 'Requires Windows.'
     )
     def test_requires_windows(self):
-        container = Container()  # code to remove
+        # container = Container()  # code to remove
         self.assertEqual(
-            container.code, 'XC-win'
+            self.container.code, 'XC-win'
         )  # code to modify
 
     @unittest.skipUnless(
         sys.platform.startswith('linux'), 'Requires Linux.'
     )
     def test_requires_linux(self):
-        container = Container()  # code to remove
+        # container = Container()  # code to remove
         self.assertEqual(
-            container.code, 'XC-linux'
+            self.container.code, 'XC-linux'
         )  # code to modify
 
 
@@ -174,7 +187,7 @@ import sys
 import unittest
 
 
-class Container:
+class Container_4:
     
     def __init__(self):
         if sys.platform.startswith('win'):
@@ -183,13 +196,16 @@ class Container:
             self.code = f'XC-{sys.platform}'
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_4(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
-        cls.container = Container()
+        cls.container = Container_4()
 
     # enter your solution here
+    @classmethod
+    def tearDownClass(cls):
+        del cls.container
 
     @unittest.skipUnless(
         sys.platform.startswith('win'), 'Requires Windows.'
@@ -227,7 +243,7 @@ import sys
 import unittest
 
 
-class Container:
+class Container_5:
     
     def __init__(self, category):
         self.category = category
@@ -236,27 +252,29 @@ class Container:
         return f"Container(category='{self.category}')"
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_5(unittest.TestCase):
 
     # enter your solution here
+    def setUp(self) -> None:
+        self.container = Container('plastic')
 
     def test_init_method(self):
-        container = Container('plastic')  # remove this
+        # container = Container('plastic')  # remove this
         msg = (
             'The container instance does not have a category '
             'attribute.'
         )
         self.assertTrue(
-            hasattr(container, 'category'), msg
+            hasattr(self.container, 'category'), msg
         )  # modify this
         self.assertEqual(
-            container.category, 'plastic'
+            self.container.category, 'plastic'
         )  # modify this
 
     def test_repr_method(self):
-        container = Container('plastic')  # remove this
+        # container = Container('plastic')  # remove this
         self.assertEqual(
-            repr(container), "Container(category='plastic')"
+            repr(self.container), "Container(category='plastic')"
         )  # modify this
 
 
@@ -278,7 +296,7 @@ import sys
 import unittest
 
 
-class Container:
+class Container_6:
     
     def __init__(self, category):
         self.category = category
@@ -287,10 +305,13 @@ class Container:
         return f"Container(category='{self.category}')"
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_6(unittest.TestCase):
     
     def setUp(self):
-        self.container = Container('plastic')
+        self.container = Container_6('plastic')
+
+    def tearDown(self) -> None:
+        del self.container
 
     # enter your solution here
 

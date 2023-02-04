@@ -8,7 +8,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     1. Basic principles of unit framework   (FINISHED)
     2. Assertion                            (FINISHED)
     3. Skipping Tests                       (FINISHED)
-    4. Test Fixtures                        (PENDING)
+    4. Test Fixtures                        (FINISHED)
     5. Tests in Functions                   (PENDING)
     6. Tests in Classes                     (PENDING)
     7. Usage of Parameters                  (PENDING)
