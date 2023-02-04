@@ -23,11 +23,12 @@ class Container:
     pass
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_1(unittest.TestCase):
 
     def test_container(self):
         self.assertIsInstance(Container, type)
 
+    @unittest.skip('The container class requires implementation')
     def test_has_code_attribute(self):
         msg = 'The Container class does not have a code attribute.'
         self.assertTrue(hasattr(Container, 'code'), msg)
@@ -67,12 +68,14 @@ class Container:
             self.code = 'XC-1'
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_2(unittest.TestCase):
 
+    @unittest.skipIf(date.today().day % 2 != 0, 'Skipping odd days')
     def test_skipping_odd_days(self):
         c = Container()
         self.assertTrue(c.code.endswith('0'), 'Invalid code attribute.')
 
+    @unittest.skipIf(date.today().day % 2 == 0, 'Skipping even days')
     def test_skipping_even_days(self):
         c = Container()
         self.assertTrue(c.code.endswith('1'), 'Invalid code attribute.')
@@ -111,12 +114,14 @@ class Container:
             self.code = f'XC-{sys.platform}'
 
 
-class TestContainer(unittest.TestCase):
+class TestContainer_3(unittest.TestCase):
 
+    @unittest.skipUnless(sys.platform.startswith('win'), 'Requires Windows')
     def test_requires_windows(self):
         c = Container()
         self.assertEqual(c.code, 'XC-win')
 
+    @unittest.skipUnless(sys.platform.startswith('linux'), 'Requires Linux')
     def test_requires_linux(self):
         c = Container()
         self.assertEqual(c.code, 'XC-linux')

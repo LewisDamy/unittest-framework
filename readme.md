@@ -7,7 +7,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     0. Usage of assert                      (FINISHED)     
     1. Basic principles of unit framework   (FINISHED)
     2. Assertion                            (FINISHED)
-    3. Skipping Tests                       (PENDING)
+    3. Skipping Tests                       (FINISHED)
     4. Test Fixtures                        (PENDING)
     5. Tests in Functions                   (PENDING)
     6. Tests in Classes                     (PENDING)
