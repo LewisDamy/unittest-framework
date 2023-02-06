@@ -43,7 +43,24 @@ def area(radius):
     return math.pi * radius ** 2
     
 
-# enter your solution here
+# enter your solution here]
+class TestArea(unittest.TestCase):
+    def test_circle_area_with_radius_one(self):
+        actual = area(1)
+        self.assertAlmostEqual(actual, 3.14159, 5)
+    
+    def test_circle_area_with_radius_three(self):
+        actual = area(3)
+        self.assertAlmostEqual(actual, 28.27433, 5)
+    
+    def test_area_incorrect_type_should_raise_type_error(self):
+        # self.assertRaises(ERROR, FunctionCallable, argsFunc)
+        self.assertRaises(TypeError, area, '4')
+        self.assertRaises(TypeError, area, None)
+    
+    def test_area_incorrect_value_should_raise_value_error(self):
+        self.assertRaises(ValueError, area, 0)
+        self.assertRaises(ValueError, area, -3) 
 
 
 #######################################################################################################
@@ -77,6 +94,21 @@ def perimeter(radius):
 
 
 # enter your solution here
+class TestPerimeter(unittest.TestCase):
+    def test_perimeter_circle_one(self):
+        actual = perimeter(1)
+        self.assertAlmostEqual(actual, 6.28318,4)
+
+    def test_perimeter_circle_five(self):
+        actual = perimeter(5)
+        self.assertAlmostEqual(actual, 31.4159, 4)
+    
+    def test_perimeter_incorrect_type_should_raise_type_error(self):
+        self.assertRaises(TypeError, perimeter, '5')
+
+    def test_perimeter_incorrect_value_should_raise_value_error(self):
+        self.assertRaises(ValueError, perimeter, -2)
+
 
 
 
@@ -117,7 +149,7 @@ def perimeter(radius):
 import unittest
 # from tax import calculate_tax
 
-def calculate_tax(amount, age, tax=17.0):
+def calculate_tax_1(amount, age, tax=17.0):
     """The function returns the amount of income tax."""
  
     tax_rate = tax / 100.0
@@ -131,6 +163,22 @@ def calculate_tax(amount, age, tax=17.0):
 
 
 # enter your solution here
+class TestCalculateTax(unittest.TestCase):
+    def test_tax_with_eighteen_age(self):
+        actual = calculate_tax_1(60000, 18)
+        self.assertEqual(actual, 6000)
+    
+    def test_tax_with_nineteen_age(self):
+        actual = calculate_tax_1(60000, 19)
+        self.assertEqual(actual, 10200)
+
+    def test_tax_with_sixty_five_age(self):
+        actual = calculate_tax_1(60000, 65)
+        self.assertEqual(actual, 10200)
+
+    def test_tax_with_sixty_six_age(self):
+        actual = calculate_tax_1(60000, 66)
+        self.assertEqual(actual, 9000)
 
 #######################################################################################################
 # EXERCISE 4
@@ -165,7 +213,7 @@ def calculate_tax(amount, age, tax=17.0):
 '''
 import unittest
 
-def calculate_tax(amount, age, tax=17.0):
+def calculate_tax_2(amount, age, tax=17.0):
     """The function returns the amount of income tax."""
     tax_rate = tax / 100.0
  
@@ -177,6 +225,22 @@ def calculate_tax(amount, age, tax=17.0):
         return int(min(amount * tax_rate, 9000))
 
 # enter your solution here
+class TestCalculateTax_2(unittest.TestCase):
+    def test_tax_twenty_percent_with_eighteen_age(self):
+        actual = calculate_tax_2(60000, 18, 20)
+        self.assertEqual(actual, 6000)
+    
+    def test_tax_twenty_percent_with_nineteen_age(self):
+        actual = calculate_tax_2(60000, 19, 20)
+        self.assertEqual(actual, 12000)
+
+    def test_tax_twenty_percent_with_sixty_five_age(self):
+        actual = calculate_tax_2(60000, 65, 20)
+        self.assertEqual(actual, 12000)
+
+    def test_tax_twenty_percent_with_sixty_six_age(self):
+        actual = calculate_tax_2(60000, 66, 20)
+        self.assertEqual(actual, 9000)
 
 
 
@@ -206,14 +270,27 @@ def calculate_tax(amount, age, tax=17.0):
     the test report will be printed to the console.
 '''
 import unittest
+# from tax import income_tax
 
 def income_tax(income, first_thresh=17.0, second_thresh=32.0):
     first_rate = first_thresh / 100.0
     second_rate = second_thresh / 100.0
     threshold = 85528
     if income < threshold:
-        return income * first_rate
+        return income * first_rate  
     else:
         return threshold * first_rate + (income - threshold) * second_rate
 
 # enter your solution here
+class TestIncomeTax_3(unittest.TestCase):
+    def test_tax_below_threshold(self):
+        actual = income_tax(60000)
+        self.assertEqual(actual, 10200)
+    
+    def test_tax_equal_threshold(self):
+        actual = income_tax(85528)
+        self.assertEqual(actual, 14539.76)
+
+    def test_tax_above_threshold(self):
+        actual = income_tax(100000)
+        self.assertEqual(actual, 19170.8)

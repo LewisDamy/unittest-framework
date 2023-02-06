@@ -9,7 +9,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     2. Assertion                            (FINISHED)
     3. Skipping Tests                       (FINISHED)
     4. Test Fixtures                        (FINISHED)
-    5. Tests in Functions                   (PENDING)
+    5. Tests in Functions                   (FINISHED)
     6. Tests in Classes                     (PENDING)
     7. Usage of Parameters                  (PENDING)
     8. Mocking                              (PENDING)
