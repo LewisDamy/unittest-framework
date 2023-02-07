@@ -10,7 +10,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     3. Skipping Tests                       (FINISHED)
     4. Test Fixtures                        (FINISHED)
     5. Tests in Functions                   (FINISHED)
-    6. Tests in Classes                     (PENDING)
+    6. Tests in Classes                     (FINISHED)
     7. Usage of Parameters                  (PENDING)
     8. Mocking                              (PENDING)
     9. Sample testing into real projects    (PENDING)
