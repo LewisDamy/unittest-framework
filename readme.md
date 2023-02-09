@@ -4,7 +4,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
 
 ### Basically the format is divided into files and their subjects:
 
-    0. Usage of assert                      (FINISHED)     
+    0. Usage of assert                      (FINISHED)
     1. Basic principles of unit framework   (FINISHED)
     2. Assertion                            (FINISHED)
     3. Skipping Tests                       (FINISHED)
@@ -13,7 +13,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     6. Tests in Classes                     (FINISHED)
     7. Usage of Parameters                  (FINISHED)
     8. Mocking                              (FINISHED)
-    9. Sample testing into real projects    (PENDING)
+    9. Sample testing into real projects    (FINISHED)
     10. Concepts of TDD                     (PENDING)
     
 e.g.:
