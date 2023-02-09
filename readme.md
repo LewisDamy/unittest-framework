@@ -12,7 +12,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     5. Tests in Functions                   (FINISHED)
     6. Tests in Classes                     (FINISHED)
     7. Usage of Parameters                  (FINISHED)
-    8. Mocking                              (PENDING)
+    8. Mocking                              (FINISHED)
     9. Sample testing into real projects    (PENDING)
     10. Concepts of TDD                     (PENDING)
     
