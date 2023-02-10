@@ -14,7 +14,7 @@ They were created based on this [Unittest Framework Course](https://www.udemy.co
     7. Usage of Parameters                  (FINISHED)
     8. Mocking                              (FINISHED)
     9. Sample testing into real projects    (FINISHED)
-    10. Concepts of TDD                     (PENDING)
+    10. Concepts of TDD                     (FINISHED)
     
 e.g.:
 `test_unittest_5_functions.py` this file, number **5** will contain all the questions of testing functions.
